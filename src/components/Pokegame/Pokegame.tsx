@@ -67,7 +67,7 @@ export const Pokegame: React.FC = () => {
   /**
    * Handles checking which hand is the winner
    */
-  const checkWinner = (hand?: "hand1" | "hand2") => {
+  const checkWinner = () => {
     const hand1Experience = calculateExperience(hand1);
     const hand2Experience = calculateExperience(hand2);
 
