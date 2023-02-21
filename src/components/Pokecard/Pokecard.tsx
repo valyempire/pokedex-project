@@ -6,9 +6,15 @@ import React from "react";
 import { PokecardProps } from "./Pokecard.types";
 
 /**
- * Imports styles
+ * Imports styled components
  */
-import "./Pokecard.css";
+import {
+  PokecardData,
+  PokecardImage,
+  PokecardTitle,
+  PokecardContainer,
+  PokecardImageContainer
+} from "./Pokecard.styles";
 
 /**
  * Defines the API URL
@@ -34,13 +40,13 @@ export const Pokecard: React.FC<PokecardProps> = (props) => {
   };
 
   return (
-    <div className="Pokecard">
-      <h1 className="Pokecard-title">{name}</h1>
-      <div className="Pokecard-image">
-        <img src={getImageSrc()} alt={name} />
-      </div>
-      <div className="Pokecard-data">Type: {type}</div>
-      <div className="Pokecard-data">EXP: {experience}</div>
-    </div>
+    <PokecardContainer>
+      <PokecardTitle>{name}</PokecardTitle>
+      <PokecardImageContainer>
+        <PokecardImage src={getImageSrc()} alt={name} />
+      </PokecardImageContainer>
+      <PokecardData>Type: {type}</PokecardData>
+      <PokecardData>EXP: {experience}</PokecardData>
+    </PokecardContainer>
   );
 };
