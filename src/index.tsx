@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 /**
  * Imports the app
  */
-import App from "./App";
+import { App } from "./App";
 
 /**
  * Imports styles
