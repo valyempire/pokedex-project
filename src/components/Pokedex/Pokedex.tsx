@@ -1,11 +1,6 @@
 import React from "react";
 
 /**
- * External imports
- */
-import clsx from "clsx";
-
-/**
  * Imports components
  */
 import { Pokecard } from "../Pokecard";
@@ -16,9 +11,9 @@ import { Pokecard } from "../Pokecard";
 import { PokedexProps } from "./Pokedex.types";
 
 /**
- * Imports styles
+ * Imports styled components
  */
-import "./Pokedex.css";
+import { Title, Container, Experience, PokedexCards } from "./Pokedex.styles";
 
 /**
  * Displays the component
@@ -26,21 +21,15 @@ import "./Pokedex.css";
 export const Pokedex: React.FC<PokedexProps> = (props) => {
   const { pokemons, isWinner, experience } = props;
 
-  /**
-   * Defines the titel class name
-   */
-  const titleClassName = clsx({
-    "Pokedex-winner": isWinner,
-    "Pokedex-loser": !isWinner
-  });
-
   return (
-    <div className="Pokedex">
-      <h1 className={titleClassName}>
+    <Container className="Pokedex-container">
+      <Title className="Pokedex-title" isWinner={isWinner}>
         {isWinner ? "Winning Hand" : "Losing Hand"}
-      </h1>
-      <h4>Total Experience: {experience}</h4>
-      <div className="Pokedex-cards">
+      </Title>
+      <Experience className="Pokedex-experience">
+        Total Experience: {experience}
+      </Experience>
+      <PokedexCards className="Pokedex-cards">
         {pokemons.map((p) => (
           <Pokecard
             id={p.id}
@@ -50,7 +39,7 @@ export const Pokedex: React.FC<PokedexProps> = (props) => {
             key={p.id}
           />
         ))}
-      </div>
-    </div>
+      </PokedexCards>
+    </Container>
   );
 };

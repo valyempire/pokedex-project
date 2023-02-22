@@ -11,3 +11,10 @@ export interface PokedexProps {
   experience: number;
   isWinner: boolean;
 }
+
+/**
+ * Defines the title props interface
+ */
+export interface TitleProps {
+  isWinner: boolean;
+}
